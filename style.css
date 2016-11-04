@@ -1,0 +1,369 @@
+/* quick reset */
+
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+
+body {
+   margin: 0px;
+   padding: 0px;
+   font-family: 'Arial', sans-serif;
+   font-size: 14px;
+   background: #bebbb5;
+   color: black;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+/* anti-iOS Safari / Webkit tweak */
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+input[type="date"],
+input[type="number"],
+.input-checkbox {
+   -webkit-appearance: none;
+   border-radius: 0;
+}
+
+article,
+input,
+.content-box,
+.container {
+   box-sizing: border-box;
+}
+
+.content-box {
+   padding: .25em 1em;
+   background: #FFF;
+   border-left: 0.6em solid rgb(95, 158, 160);
+   width: 100%;
+}
+
+.container {
+   max-width: 1080px;
+   margin: 0 auto;
+   padding: 0 1em;
+   height: 100%;
+}
+
+article {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   padding: 0.5em;
+   width: 100%;
+   /* limit main content width and center */
+   max-width: 1080px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+table {
+   border-collapse: collapse;
+   font-size: 10px;
+   color: #404040;
+   width: 100%;
+}
+
+thead {
+   border-bottom: 2px solid #404040;
+}
+
+tbody tr:nth-child(odd) {
+   background: #eee;
+}
+
+td,
+th {
+   text-align: left;
+   padding: 0.25rem;
+}
+
+th {
+   vertical-align: bottom;
+   padding: 0.25rem 0.5rem;
+}
+
+input {
+   min-width: 1em;
+}
+
+p,
+ul,
+li {
+   font-weight: normal;
+   font-size: 15px;
+   color: #404040;
+}
+
+p {
+   margin: .5em 0;
+}
+
+ul {
+   margin: 0 1em 1em 1em;
+}
+
+section {
+   -webkit-box-flex: 0;
+   -ms-flex: 0;
+   flex: 0;
+   padding: 0.5em;
+}
+
+h4 {
+   display: inline-block;
+   line-height: 1.1em;
+   margin: 0;
+   padding: 0.5em 0 0.5em 0;
+   color: #404040;
+   font-size: 18px;
+   font-weight: 500;
+}
+
+.content-box h1 {
+   display: inline-block;
+   margin: 0;
+   padding: 0.25em 0;
+   color: #404040;
+   font-size: 20px;
+   font-weight: 500;
+   text-transform: uppercase;
+}
+
+.content-box h1:not(:first-child) {
+   margin-left: 10px;
+}
+
+
+/* use with Glyphicon toggle */
+
+.inputButton {
+   -webkit-box-flex: 1;
+   -ms-flex: 1 1 auto;
+   flex: 1 1 auto;
+   background-color: rgba(255, 178, 73, 0.42);
+   color: black;
+   border: 1px solid rgba(147, 128, 108, 0.25);
+   padding: 0.5em 0.75em;
+   font: inherit;
+   font-weight: normal;
+   border-radius: 2px;
+   cursor: pointer;
+}
+
+/* Greater than 640x */
+
+@media all and (min-width: 640px) {
+   td {
+      padding: 0.5rem;
+   }
+}
+
+
+/* Tiny screens */
+
+@media all and (max-width: 360px) {
+   article,
+   section {
+      padding: 0.5em 0;
+   }
+   .container {
+      padding: 0;
+   }
+   th,
+   td {
+      padding: 0.1rem;
+   }
+}
+
+
+/* GRID */
+
+
+/* 
+ * adapted from:
+ * https://philipwalton.github.io/solved-by-flexbox/demos/grids/
+*/
+
+
+/* ============ 
+     BASE GRID
+   ============ */
+
+.Grid {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -ms-flex-wrap: wrap;
+   flex-wrap: wrap;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.Grid-cell {
+   -webkit-box-flex: 1;
+   -ms-flex: 1 0 auto;
+   flex: 1 0 auto;
+   box-sizing: border-box;
+}
+
+.Grid-cell--autoSize {
+   -webkit-box-flex: 0;
+   -ms-flex: none;
+   flex: none;
+}
+
+
+/* Gutters */
+
+.Grid--gutters {
+   margin: -0.5em 0 0.5em -0.5em;
+}
+
+.Grid--gutters > .Grid-cell {
+   padding: 0.5em 0 0 0.5em;
+}
+
+
+/* =======================
+  GRID RESPONSIVE MODIFIERS
+   ======================= */
+
+
+/* Base classes for all media */
+
+.Grid--fit > .Grid-cell {
+   -webkit-box-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+}
+
+.Grid--full > .Grid-cell {
+   -webkit-box-flex: 1;
+   -ms-flex: 1 1 100%;
+   flex: 1 1 100%;
+}
+
+
+/* Medium screens */
+
+@media (min-width: 576px) {
+   .med-Grid--1of2 > .Grid-cell {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+      flex: 1 0 50%;
+   }
+   .med-Grid--1of3 > .Grid-cell {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 33.3333%;
+      flex: 1 0 33.3333%;
+   }
+}
+
+
+/* Large screens */
+
+@media (min-width: 960px) {
+   .large-Grid--1of3 > .Grid-cell {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 33.3333%;
+      flex: 1 0 33.3333%;
+   }
+}
+
+
+/* Input Styles
+ * credit: https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/
+*/
+
+.InputAddOn {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+}
+
+.InputAddOn-field {
+   -webkit-box-flex: 1;
+   -ms-flex: 1 1 auto;
+   flex: 1 1 auto;
+}
+
+.InputAddOn-field:not(:first-child) {
+   border-left: 0;
+}
+
+.InputAddOn-field:not(:last-child) {
+   border-right: 0;
+}
+
+.InputAddOn-item {
+   -webkit-box-flex: 0;
+   -ms-flex: 0 0 auto;
+   flex: 0 0 auto;
+   background-color: rgba(147, 128, 108, 0.1);
+   color: #666666;
+}
+
+.InputAddOn-field,
+.InputAddOn-item {
+   border: 1px solid rgba(147, 128, 108, 0.25);
+   padding: 0.5em 0.75em;
+   font: inherit;
+   font-weight: normal;
+}
+
+.InputAddOn-field:first-child,
+.InputAddOn-item:first-child {
+   border-radius: 2px 0 0 2px;
+}
+
+.InputAddOn-field:last-child,
+.InputAddOn-item:last-child {
+   border-radius: 0 2px 2px 0;
+}
+
+
+/* ===============
+     custom stuff
+   =============== */
+
+
+/* Custom input field focus effects */
+
+.InputAddOn-field:not(:first-child):focus {
+   outline: none;
+   border-top: 1px solid rgba(190, 187, 183, 1);
+   border-right: 1px solid rgba(190, 187, 183, 1);
+   border-bottom: 1px solid rgba(190, 187, 183, 1);
+   box-shadow: 0 0 5px rgba(190, 187, 183, 1);
+}
+
+.InputAddOn-field:not(:last-child):focus {
+   outline: none;
+   border-top: 1px solid rgba(190, 187, 183, 1);
+   border-left: 1px solid rgba(190, 187, 183, 1);
+   border-bottom: 1px solid rgba(190, 187, 183, 1);
+   box-shadow: 0 0 5px rgba(190, 187, 183, 1);
+}
+
+.InputAddOn-field-prefix {
+   -webkit-box-flex: 0;
+   -ms-flex: 0;
+   flex: 0;
+   border-top: 1px solid rgba(147, 128, 108, 0.25);
+   border-bottom: 1px solid rgba(147, 128, 108, 0.25);
+   padding: 0.5em 0 0.5em 0.75em;
+   font: inherit;
+   font-weight: normal;
+}
