@@ -76,7 +76,8 @@
          return seconds / 3600;
       }
 
-      // subtract commute costs, multiply by weeks days per month (260/12)
+      // calculate monthly difference in commute costs (daily cost difference
+      // multiplied by number of week-days per month (260/12))
       // @params  [number] costA [round-trip cost from originA to destination]
       // @params  [number] costB [round-trip cost from originB to destination]
       // @returns [number]       [positive cost difference between commutes]
